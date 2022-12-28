@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 PROJECT(LC_TEST)
 
 # -fsanitize=address 地址消毒
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fsanitize=address -fexec-charset=GBK")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0 -fsanitize=address")
 
 # dynamic lib
 add_library(leetcode SHARED
