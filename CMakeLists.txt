@@ -6,6 +6,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0 -fsanitize=address")
 
 # dynamic lib
 add_library(leetcode SHARED
+    ${PROJECT_SOURCE_DIR}/src/lc_src/lc_930.cpp
+    ${PROJECT_SOURCE_DIR}/src/lc_src/lc_954.cpp
+    ${PROJECT_SOURCE_DIR}/src/lc_src/lc_1094.cpp
+    ${PROJECT_SOURCE_DIR}/src/lc_src/lc_1606.cpp
     ${PROJECT_SOURCE_DIR}/src/lc_src/lc_1705.cpp
 )
 
