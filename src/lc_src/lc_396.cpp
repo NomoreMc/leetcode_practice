@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include "lc_396.h"
 using namespace std;
 /*
     给定一个长度为 n 的整数数组 nums 。
@@ -46,40 +47,36 @@ using namespace std;
         .
         F(I) = F(I - 1) - (totalSum - nums[I - 1]) + (N - 1) * nums[I-1];
 */
+int Solution_396::maxRotateFunction(vector<int>& nums) {
+    int maxSum = 0;
+    int totalSum = 0;
+    int currSum = 0;
+    int N = nums.size();
 
-class Solution {
-public:
-    int maxRotateFunction(vector<int>& nums) {
-        int maxSum = 0;
-        int totalSum = 0;
-        int currSum = 0;
-        int N = nums.size();
-
-        for (int i=0; i<N; ++i) {
-            totalSum += nums[i];
-            currSum += i * nums[i];
-        }
-        
-        maxSum = currSum;
-        for (int i=0; i<N; ++i) {
-            currSum = currSum - totalSum + N * nums[i];
-            maxSum = max(currSum, maxSum);
-        }
-
-        return maxSum;
+    for (int i=0; i<N; ++i) {
+        totalSum += nums[i];
+        currSum += i * nums[i];
     }
-};
+    
+    maxSum = currSum;
+    for (int i=0; i<N; ++i) {
+        currSum = currSum - totalSum + N * nums[i];
+        maxSum = max(currSum, maxSum);
+    }
 
-void test() {
-    Solution a;
-    vector<int> input1({4,3,2,6});
-    cout<<"ans: "<<a.maxRotateFunction(input1)<<endl;
-
-    vector<int> input2({100});
-    cout<<"ans: "<<a.maxRotateFunction(input2)<<endl;    
+    return maxSum;
 }
 
-int main(int argc, char **argv) {
-    test();
-    return 0;
-}
+// void test() {
+//     Solution a;
+//     vector<int> input1({4,3,2,6});
+//     cout<<"ans: "<<a.maxRotateFunction(input1)<<endl;
+
+//     vector<int> input2({100});
+//     cout<<"ans: "<<a.maxRotateFunction(input2)<<endl;    
+// }
+
+// int main(int argc, char **argv) {
+//     test();
+//     return 0;
+// }
