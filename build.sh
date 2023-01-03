@@ -10,16 +10,17 @@ delete_option=""
 sys_arch=`arch`
 
 PROJ_ROOT_PATH=`pwd`
-PROJ_BUILD_PATH=${PROJ_ROOT_PATH}/build
+PROJ_BUILD_PATH=${PROJ_ROOT_PATH}/output
 
 # 环境变量
-# export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(realpath ${PROJ_ROOT_PATH}/build/lib)
+# export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(realpath ${PROJ_ROOT_PATH}/output/lib)
 
 # 删除所有的构建中间文件
 clean() {
     cd ${PROJ_ROOT_PATH}
-    rm -rf ${PROJ_ROOT_PATH}/build
-    mkdir build
+    rm -rf ${PROJ_ROOT_PATH}/output
+    rm -rf ${PROJ_ROOT_PATH}/report
+    mkdir output
 }
 
 # 解析选项
@@ -52,7 +53,7 @@ parse_option() {
 
 # 构建库
 build_lib() {
-    cd ${PROJ_ROOT_PATH}/build
+    cd ${PROJ_ROOT_PATH}/output
     if [[ $get_arch = "x86_64 "]]; then
         python3 ../configure.py --lib_type static --add_option="${add_option}" --delete_option="${delete_option}"
         cmake ..
@@ -62,17 +63,18 @@ build_lib() {
 
 # 构建测试
 build_test() {
-    cd ${PROJ_ROOT_PATH}/build
+    cd ${PROJ_ROOT_PATH}/output
     cmake ..
     make -j4
 }
 
 run_test() {
-    cd ${PROJ_ROOT_PATH}/build/bin
+    cd ${PROJ_ROOT_PATH}/output/bin
     ./run_test
 }
 
 clean
+# parse_option
 # build_lib
 build_test
-run_test
+# run_test

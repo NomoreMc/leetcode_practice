@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 PROJECT(LC_TEST)
 
 # -fsanitize=address 地址消毒
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0 -fsanitize=address")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0 -fsanitize=address -ftest-coverage -fprofile-arcs")
 
 # dynamic lib
 add_library(leetcode SHARED
@@ -46,6 +46,6 @@ target_include_directories(run_test
 )
 
 # 可执行文件输出路径
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/bin)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/output/bin)
 # 库输出路径
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/lib)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/output/lib)
