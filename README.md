@@ -1,4 +1,2 @@
 # leetcode_practice
-This is a repo for leetcode practice.
-
-test push
+    个人 leetcode 练习仓，同时会进行测试框架的开发
