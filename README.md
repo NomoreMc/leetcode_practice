@@ -4,3 +4,5 @@
 # try push from ipad "working copy app"
 
 # try push from ipad "working copy app" a second time
+
+# 重装实例后尝试 push
