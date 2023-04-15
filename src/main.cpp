@@ -1,6 +1,7 @@
 /* std header */
 #include <iostream>
 #include <memory>
+#include <gtest/gtest.h>
 
 /* project header */
 #include "leetcode.h"
@@ -331,6 +332,7 @@ void test_1705(void) {
 }
 
 int main(int argc, char **argv) {
+    int ret = 0;
     test_unknown_1();
     test_307();
     test_310();
@@ -345,6 +347,8 @@ int main(int argc, char **argv) {
     test_1606();
     test_1705();
 
+    ::testing::InitGoogleTest(&argc, argv);
+    ret = RUN_ALL_TESTS();
     cout<<"Test End!"<<endl;
     return 0;
 }

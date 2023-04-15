@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 PROJECT(LC_TEST)
 
+enable_testing()
+find_package(GTest REQUIRED)
+
 # -fsanitize=address 地址消毒
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0 -fsanitize=address -ftest-coverage -fprofile-arcs")
 
@@ -37,12 +40,15 @@ add_executable(run_test
 target_link_libraries(run_test
     PRIVATE
     leetcode
+    GTest::GTest
+    GTest::Main
 )
 
 # exe include
 target_include_directories(run_test
     PRIVATE
     ${PROJECT_SOURCE_DIR}/include
+    ${GTEST_INCLUDE_DIRS}
 )
 
 # 可执行文件输出路径
