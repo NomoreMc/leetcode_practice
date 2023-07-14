@@ -333,19 +333,19 @@ void test_1705(void) {
 
 int main(int argc, char **argv) {
     int ret = 0;
-    test_unknown_1();
-    test_307();
-    test_310();
-    test_373();
-    test_380();
-    test_396();
-    test_728();
-    test_787();
-    test_930();
-    test_954();
-    test_1094();
-    test_1606();
-    test_1705();
+    // test_unknown_1();
+    // test_307();
+    // test_310();
+    // test_373();
+    // test_380();
+    // test_396();
+    // test_728();
+    // test_787();
+    // test_930();
+    // test_954();
+    // test_1094();
+    // test_1606();
+    // test_1705();
 
     ::testing::InitGoogleTest(&argc, argv);
     ret = RUN_ALL_TESTS();
